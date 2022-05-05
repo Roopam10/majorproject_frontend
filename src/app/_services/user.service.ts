@@ -28,8 +28,18 @@ export class UserService {
     return this.httpclient.get(this.PATH_OF_API + '/forAdmin', {responseType:'text',});
   }
 
+  public forTA(){
+    console.log(this.PATH_OF_API+"/forTA");
+    console.log("asdas");
+    return this.httpclient.get(this.PATH_OF_API + '/forTA', {responseType:'text',});
+  }
+
   public createNewUser(userData: any){
     return this.httpclient.post(this.PATH_OF_API + '/registerNewUser', userData);
+  }
+
+   public createNewTa(userData: any){
+    return this.httpclient.post(this.PATH_OF_API + '/registerNewTA', userData);
   }
 
   public roleMatch(allowedRoles :any) :boolean{

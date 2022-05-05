@@ -17,6 +17,7 @@ import { AuthGuard } from './_auth/auth.guard';
 import { AuthInterceptor } from './_auth/auth.interceptor';
 import { UserService } from './_services/user.service';
 import { RegisterComponent } from './register/register.component';
+import { TaComponent } from './ta/ta.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { RegisterComponent } from './register/register.component';
     HeaderComponent,
     ForbiddenComponent,
     RegisterComponent,
+    TaComponent,
    
   ],
   imports: [

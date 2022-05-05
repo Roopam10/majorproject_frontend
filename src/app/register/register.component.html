@@ -1,6 +1,8 @@
 <div class="container mt-5">
     <div class="card" style="padding: 20px;">
         <form #createNewuser="ngForm" (ngSubmit)="create(createNewuser)">
+
+            
             <input type="text" ngModel name="userName" 
             id="userName" placeholder="Enter your username" class="form-control mb-3">
             
@@ -13,7 +15,15 @@
             <input type="password" ngModel name="userPassword" 
             id="userPassword" placeholder="Enter your password" class="form-control mb-3">
 
-
+            <label >
+                <input [(ngModel)]="answer" type="radio" value="True" name="userRole"/>Student
+            </label>
+            <br/>
+            <label>
+                <input [(ngModel)]="answer" type="radio" value="False" name="userRole" />Teaching Assistant
+            </label>
+            <br>
+            Your answer: {{answer}}
             <input type="submit" value="Register" class="btn btn-outline-primary form-control rounded-0" >
     </form>
     </div>

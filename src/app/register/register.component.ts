@@ -12,6 +12,7 @@ import { UserService } from '../_services/user.service';
 export class RegisterComponent implements OnInit {
 
   created :string= '';
+  userRole!: string;
  
   constructor(
     private userservice:UserService,
@@ -21,7 +22,13 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
     this.created='';
   }
+public answer='';
+
+
+
    public create(createUserForm: NgForm){
+
+    if(this.answer==='True'){
      console.log(createUserForm.value);
      this.userservice.createNewUser(createUserForm.value).subscribe({
        next: (response: any)=>{
@@ -34,10 +41,25 @@ export class RegisterComponent implements OnInit {
          this.created='0';
        }
      })
+    }
+    else{
+      console.log(createUserForm.value);
+     this.userservice.createNewTa(createUserForm.value).subscribe({
+       next: (response: any)=>{
+         console.log(response);
+         this.created='1';
+         this.router.navigateByUrl('/login');
+       },
+       error:(error)=>{
+         console.log(error);
+         this.created='0';
+       }
+     })
 
+    }
+  }
 
-   }
-   
+  
 
 
 }
