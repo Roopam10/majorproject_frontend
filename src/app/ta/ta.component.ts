@@ -10,10 +10,28 @@ import { UserService } from '../_services/user.service';
 export class TaComponent implements OnInit {
 
    message: any | undefined;
+   projects:any;
   constructor(private projectService:ProjectService) { }
 
   ngOnInit(): void {
-    
+    this.getAll();
   }
+  getAll()
+  {
+    this.projectService.getAllProjects().subscribe(
+      response=>
+      {
+        this.projects=response;
+        console.log(response);
+      }
+    );
+  }
+  reject()
+  {
+
+  }
+  public getColor(balance:boolean): string{
+    return balance ===true ? "rgba(11, 184, 11, 0.59)" : "rgba(222, 67, 67, 0.59)";
+ }
 
 }

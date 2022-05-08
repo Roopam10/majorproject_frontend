@@ -20,6 +20,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  userName:any;
 
   login(loginForm:NgForm) {
     this.userService.login(loginForm.value).subscribe(
@@ -40,6 +41,7 @@ export class LoginComponent implements OnInit {
         else{
           this.router.navigate(['/ta']);
         }
+        sessionStorage.setItem('userName',this.userName);
       },
       (error)=>{
         console.log(error);

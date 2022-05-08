@@ -1,10 +1,6 @@
-<div class="container mt-5">
-    <div class="card text-center" style="padding: 20px">
-        <h1>TA dashboard</h1>
-        <!-- Editable table -->
 <div class="card">
     <h3 class="card-header text-center font-weight-bold text-uppercase py-4">
-      Editable table
+      Ta DashBoard
     </h3>
     <div class="card-body">
       <div id="table" class="table-editable">
@@ -25,24 +21,16 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td class="pt-3-half" contenteditable="false">Guerra Cortez</td>
-              <td class="pt-3-half" contenteditable="false">45</td>
-              <td class="pt-3-half" contenteditable="false">Insectus</td>
-              <td class="pt-3-half" contenteditable="false">asddddd</td>
-              <td class="pt-3-half" contenteditable="false">USA</td>
-              <td class="pt-3-half"><button class="btn btn-danger">Reject</button></td>
+            <tr *ngFor="let project of projects">
+              <td class="pt-3-half" contenteditable="false" [ngStyle]="{'background-color': getColor(project.approved)}">{{project.pid}}</td>
+              <td class="pt-3-half" contenteditable="false">{{project.uid}}</td>
+              <td class="pt-3-half" contenteditable="false">{{project.name}}</td>
+              <td class="pt-3-half" contenteditable="false">{{project.description}}</td>
+              <td class="pt-3-half" contenteditable="false">{{project.projectLink}}</td>
+              <td class="pt-3-half"><button class="btn btn-danger" (click)="reject()">Reject</button></td>
               <td class="pt-3-half"><button class="btn btn-success">Accept</button></td>
             </tr>
-            <tr>
-                <td class="pt-3-half" contenteditable="false">Guerra Cortez</td>
-                <td class="pt-3-half" contenteditable="false">45</td>
-                <td class="pt-3-half" contenteditable="false">Insectus</td>
-                <td class="pt-3-half" contenteditable="false">asddddd</td>
-                <td class="pt-3-half" contenteditable="false">USA</td>
-                <td class="pt-3-half"><button class="btn btn-danger">Reject</button></td>
-                <td class="pt-3-half"><button class="btn btn-success">Accept</button></td>
-              </tr>
+
           </tbody>
         </table>
       </div>
@@ -50,5 +38,3 @@
   </div>
   <!-- Editable table -->
 
-    </div>
-</div>

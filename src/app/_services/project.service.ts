@@ -8,8 +8,10 @@ export class ProjectService {
 
   constructor(private http:HttpClient) { }
 
-  getAllProjects(userName:any)
+  getAllProjects()
   {
-    return this.http.get<[]>(`http://localhost:9090/project/all/${userName}`);
+    let userName=sessionStorage.getItem("userName");
+    console.log(userName);
+    return this.http.get<[]>(`http://localhost:9090/project/all/`+userName);
   }
 }
