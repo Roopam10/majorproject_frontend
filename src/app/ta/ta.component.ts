@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProjectService } from '../_services/project.service';
 import { UserService } from '../_services/user.service';
 
 @Component({
@@ -8,22 +9,10 @@ import { UserService } from '../_services/user.service';
 })
 export class TaComponent implements OnInit {
 
-   message: string | undefined;
-  constructor(private userService: UserService) { }
+   message: any | undefined;
+  constructor(private projectService:ProjectService) { }
 
   ngOnInit(): void {
-    this.forTA();
-  }
-  forTA() {
-    this.userService.forTA().subscribe(
-      (response) =>{
-        console.log(response);
-        this.message = response;
-      },
-      (error)=>{
-        console.log(error);
-      }
-    );
     
   }
 
