@@ -21,16 +21,15 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let project of projects">
+            <tr *ngFor="let project of projects ">
               <td class="pt-3-half" contenteditable="false" [ngStyle]="{'background-color': getColor(project.approved)}">{{project.pid}}</td>
               <td class="pt-3-half" contenteditable="false">{{project.uid}}</td>
               <td class="pt-3-half" contenteditable="false">{{project.name}}</td>
               <td class="pt-3-half" contenteditable="false">{{project.description}}</td>
               <td class="pt-3-half" contenteditable="false">{{project.projectLink}}</td>
-              <td class="pt-3-half"><button class="btn btn-danger" (click)="reject()">Reject</button></td>
+              <td class="pt-3-half"><button class="btn btn-danger" (click)="reject(project.pid)">Reject</button></td>
               <td class="pt-3-half"><button class="btn btn-success">Accept</button></td>
             </tr>
-
           </tbody>
         </table>
       </div>
