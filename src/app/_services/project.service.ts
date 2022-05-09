@@ -1,5 +1,6 @@
 import {  HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Project } from '../class/project';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,19 @@ export class ProjectService {
   {
     let userName=sessionStorage.getItem("userName");
     console.log(userName);
-    return this.http.get<[]>(`http://localhost:9090/project/all/`+userName);
+    return this.http.get<Project[]>(`http://localhost:9090/project/all/`+userName);
+  }
+
+  getProjectById(index:number)
+  {
+    return this.http.get<Project>(`http://localhost:9090/project/`+index);
+  }
+
+  updateProject(index:number,project:Project)
+  {
+    console.log("asd");
+    let temp=`http://localhost:9090/project/update/`+index;
+    console.log(temp);
+    return this.http.put(temp,project);
   }
 }
