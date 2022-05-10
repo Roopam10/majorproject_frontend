@@ -9,7 +9,7 @@ import { UserService } from '../_services/user.service';
   selector: 'app-user',
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.css']
-})
+})    
 export class UserComponent implements OnInit {
 
   message: string | undefined;
@@ -79,9 +79,17 @@ export class UserComponent implements OnInit {
  }
  addProject()
  {
-   console.log(this.description);
+   this.pro.approved=null;
+   this.pro.uid=null;
+   this.pro.ta=null;
    this.pro.description=this.description;
    this.pro.projectLink=this.link;
-   
+   this.projectService.projectAdd(this.pro).subscribe((res)=>{
+        console.log(res);
+        this.project=res;
+        this.router.navigate(["/user"]);
+
+   });
+
  }
 }

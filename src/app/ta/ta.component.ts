@@ -54,5 +54,25 @@ export class TaComponent implements OnInit {
   public getColor(balance:boolean): string{
     return balance ===true ? "rgba(11, 184, 11, 0.59)" :balance===null ?"rgba(255, 255, 0, 0.59)": "rgba(222, 67, 67, 0.59)";
  }
+ async accept(index:any)
+  {
+    
+    this.projectService.getProjectById(index).subscribe(
+      response=>
+      {
+        this.currentProject=response;
+        this.currentProject.approved=true;
+        this.projectService.updateProject(index,this.currentProject).subscribe(
+          response=>
+          {
+            this.router.navigate(["/ta"]);
+            this.getAll();
+          }
+        );
+      }
+    );
+    
+
+  }
 
 }

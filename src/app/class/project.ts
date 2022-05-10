@@ -14,7 +14,7 @@
 
 export class Project {
     constructor(
-      public pid: number,
+      public pid: any,
       public uid: any,
       public name:any,
         

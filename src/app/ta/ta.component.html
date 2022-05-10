@@ -11,7 +11,7 @@
         <table class="table table-bordered table-responsive-md table-striped text-center" style="width:100%; table-layout:fixed;">
           <thead>
             <tr>
-              <th WIDTH=10% class="text-center">Pid</th>
+              <th WIDTH=10% class="text-center">Project id</th>
               <th WIDTH=10% class="text-center">Username</th>
               <th WIDTH=10% class="text-center">name</th>
               <th WIDTH=38% class="text-center">Description</th>
@@ -28,7 +28,7 @@
               <td class="pt-3-half" contenteditable="false">{{project.description}}</td>
               <td class="pt-3-half" contenteditable="false">{{project.projectLink}}</td>
               <td class="pt-3-half"><button class="btn btn-danger" (click)="reject(project.pid)">Reject</button></td>
-              <td class="pt-3-half"><button class="btn btn-success">Accept</button></td>
+              <td class="pt-3-half"><button class="btn btn-success" (click)="accept(project.pid)">Accept</button></td>
             </tr>
           </tbody>
         </table>

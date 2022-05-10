@@ -33,4 +33,11 @@ export class ProjectService {
   {
     return this.http.get<Project>(`http://localhost:9090/project/user/${name}`);
   }
+  projectAdd(project:Project)
+  {
+    let userName=sessionStorage.getItem("userName");
+    project.uid=userName;
+    project.name=userName;
+    return this.http.post<Project>(`http://localhost:9090/project/add`,project);
+  }
 }
