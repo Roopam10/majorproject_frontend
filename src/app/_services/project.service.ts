@@ -28,4 +28,9 @@ export class ProjectService {
     console.log(temp);
     return this.http.put(temp,project);
   }
+
+  getProjectByName(name:string|any)
+  {
+    return this.http.get<Project>(`http://localhost:9090/project/user/${name}`);
+  }
 }

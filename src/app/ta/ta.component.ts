@@ -52,7 +52,7 @@ export class TaComponent implements OnInit {
 
   }
   public getColor(balance:boolean): string{
-    return balance ===true ? "rgba(11, 184, 11, 0.59)" : "rgba(222, 67, 67, 0.59)";
+    return balance ===true ? "rgba(11, 184, 11, 0.59)" :balance===null ?"rgba(255, 255, 0, 0.59)": "rgba(222, 67, 67, 0.59)";
  }
 
 }
