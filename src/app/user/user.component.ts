@@ -76,6 +76,7 @@ export class UserComponent implements OnInit {
 
     }
   );
+  alert("update successfull");
  }
  addProject()
  {
