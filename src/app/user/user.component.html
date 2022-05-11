@@ -1,6 +1,49 @@
-<div class="container mt-5">
-    <div class="card text-center" style="padding: 20px;color: red;">
-    <h1>This is user dashboard</h1>
-    <h1>{{message}}</h1>
+<div class="container" style="text-align:center ;" *ngIf="!project && !show">
+    <button class="btn btn-success" (click)="select()"  style="margin-top: 100px;">Click to add a project</button>
+</div>
+<div *ngIf="project" >
+    <div class="card">
+        <h3 class="card-header text-center font-weight-bold text-uppercase py-4">
+          User DashBoard
+        </h3>
+        <div class="card-body">
+          <div id="table" class="table-editable">
+            <span class="table-add float-right mb-3 mr-2"
+              ><a href="#!" class="text-success"
+                ><i class="fas fa-plus fa-2x" aria-hidden="true"></i></a
+            ></span>
+            <table class="table table-bordered table-responsive-md table-striped text-center" style="width:100%; table-layout:fixed;">
+              <thead>
+                <tr>
+                  <th WIDTH=10% class="text-center">Project No</th>
+                  <th WIDTH=10% class="text-center">name</th>
+                  <th WIDTH=38% class="text-center">Description</th>
+                  <th WIDTH=12% class="text-center">projectLink</th>
+                  <th WIDTH=10% class="text-center">Update</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="pt-3-half" contenteditable="false" [ngStyle]="{'background-color': getColor(project.approved)}">{{project.pid}}</td>
+                  <td class="pt-3-half" contenteditable="false">{{project.name}}</td>
+                  <td id="test" class="pt-3-half" contenteditable="true" #data1>{{project.description}}</td>
+                  <td class="pt-3-half" contenteditable="true" #data2>{{project.projectLink}}</td>
+                  <td class="pt-3-half"><button class="btn btn-success " (click)="update(data1,data2,project.pid)">Update</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+</div>
+<div *ngIf="!project && show" class="container">
+<h2>You have to add a new project</h2>
+    <div class="form-group">
+       <label for="name">Please enter your Project Discription</label>
+       <textarea [(ngModel)]="description" class="form-control" rows="3" style="width:50% ;"></textarea>
+       <label for="name">Please paste the link to your project proposal</label>
+       <br>
+       <input [(ngModel)]="link" type="text">
+       <button class="btn btn-success" (click)="addProject()">submit</button>
     </div>
 </div>
